@@ -10,9 +10,9 @@ xlabel('Time (sec)');
 ylabel('Amplitude');
 title('Sine Wave without noise');
 
-y = awgn(x,30);
-%noise_sig = rand(3, length(x));
-%y = x+noise_sig;
+y = awgn(x,50);
+% noise_sig = rand(3, length(x));
+% y = x+noise_sig;
 
 subplot(2,1,2);
 plot(y);
