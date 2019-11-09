@@ -11,5 +11,7 @@ R = 1;
 L = 0.5;
 % Ke : electromotive force constant, Kt: motor torque constant
 K = 0.01;
+% transfer function
 p = tf('p');
-ss = K/((j*p+b)*(L*p+R)+K*K)
+ss = K/((j*p+b)*(L*p+R)+K*K);
+s

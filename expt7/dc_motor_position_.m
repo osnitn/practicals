@@ -13,4 +13,4 @@ L = 0.5;
 K = 0.01;
 % transfer function
 p = tf('p');
-ss = K/((j*p+b)*(L*p+R)+K*K)
+ss = K/(p*((J*p+b)*(L*p+R)+K*K))
