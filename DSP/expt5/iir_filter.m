@@ -5,18 +5,20 @@ f  = 5e3;
 ts = 1/fs;
 t  = 0:ts: 5e-3-ts
 X  = 5 * sin (2* pi* f * t);
-Z  = awgn(X,1);
+Z  = awgn(X, 1);
 
-% plot the output - sinusoidal signal
+% plot the output - sinusoidal signal;
+figure;
 plot(t,X);
 title('Sinusoidal signal');
 
 % Plot 2 - signal with noise
+figure;
 plot(1,Z);
 title('Signal with noise');
 
 nfft  = length(Z)
-nfft2 = 2^nestpow2(nfft);
+nfft2 = 2^nextpow2(nfft);
 
 % fast fourier transformation
 Fy = fft(Z, nfft2);
@@ -25,14 +27,13 @@ Fy = Fy(1:nfft2/2);
 xfft = fs * (0:nfft2/2 - 1)/nfft2;
 
 % plot3
-plot(xfft, abs( Fy/max(Fy));
+figure;
+plot(xfft, abs( Fy/max(Fy)));
 0:40;
 wc = 2* pi * f/fs;
-[b,a] = butter(0, wc, 'low');
+[b,a] = butter(0, wc, 'fdesign.lowpass');
 x_f_iir = filter(b,a,Z);
 
 figure;
-
 plot(t,x_f_iir);
 title('Filtered Sinusoidal Wave');
-

@@ -8,16 +8,30 @@ noise = 0.5 * randn(size(t));
 % input signal with random noise
 x = s + noise;
 
-plot(x)
-shg
-plot(x)
+% Plot the input signal
+figure;
+plot(x);
+title('Input Signal');
+xlabel('Time (S)');
+ylabel('Amplitude');
+
 
 % low pass filter
 d = designfilt('lowpassfir','FilterOrder',5,'CutOffFrequency',11,'SampleRate',Fs);
 
 % output - filtered waveform
-y = filter(d,x)
+y = filter(d,x);
 
-plot(y)
+% Plot the input signal
+figure;
+plot(y,  'g');
+title('filtered signal');
+xlabel('Time (S)');
+ylabel('Amplitude');
 
-plot(X), hold on; plot(y)
+% Comparative representation of input and output waveforms
+figure;
+plot(x), hold on; plot(y);
+title('Low Pass filter');
+xlabel('Time (S)');
+ylabel('Amplitude');
