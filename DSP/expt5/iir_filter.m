@@ -14,7 +14,7 @@ title('Sinusoidal signal');
 
 % Plot 2 - signal with noise
 figure;
-plot(1,Z);
+plot(t,Z);
 title('Signal with noise');
 
 nfft  = length(Z)
