@@ -33,7 +33,7 @@ plot(xfft, abs( Fy/max(Fy)));
 order = 2; % order of filter
 wc = f/(fs/2); % sampling rate
 % Butterworth filter
-[b,a] = butter(0, wc, 'fdesign.lowpass');
+[b,a] = butter(order, wc, 'fdesign.lowpass');
 x_f_iir = filter(b,a,Z);
 
 figure;
