@@ -29,8 +29,10 @@ xfft = fs * (0:nfft2/2 - 1)/nfft2;
 % plot3
 figure;
 plot(xfft, abs( Fy/max(Fy)));
-0:40;
-wc = 2* pi * f/fs;
+
+order = 2; % order of filter
+wc = f/(fs/2); % sampling rate
+% Butterworth filter
 [b,a] = butter(0, wc, 'fdesign.lowpass');
 x_f_iir = filter(b,a,Z);
 
