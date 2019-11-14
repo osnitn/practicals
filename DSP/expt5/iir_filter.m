@@ -14,7 +14,7 @@ title('Sinusoidal signal');
 
 % Plot 2 - signal with noise
 figure;
-plot(1,Z);
+plot(t,Z);
 title('Signal with noise');
 
 nfft  = length(Z)
@@ -29,9 +29,11 @@ xfft = fs * (0:nfft2/2 - 1)/nfft2;
 % plot3
 figure;
 plot(xfft, abs( Fy/max(Fy)));
-0:40;
-wc = 2* pi * f/fs;
-[b,a] = butter(0, wc, 'fdesign.lowpass');
+
+order = 2; % order of filter
+wc = f/(fs/2); % sampling rate
+% Butterworth filter
+[b,a] = butter(order, wc, 'fdesign.lowpass');
 x_f_iir = filter(b,a,Z);
 
 figure;
